@@ -1,4 +1,4 @@
-module github.com/bradleyjsimons/terrahealth-cli.git
+module github.com/bradleyjsimons/terrahealth-cli
 
 go 1.21.4
 
