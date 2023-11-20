@@ -22,3 +22,6 @@ go.work
 
 .whisper
 
+/coverage
+
+.DS_Store

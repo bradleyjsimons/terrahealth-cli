@@ -46,8 +46,14 @@ func (a *App) run(args []string) error {
 	// Execute the command
 	switch command {
 	case "check-aws":
+		// Create a real EC2 service client
+		ec2Svc, err := a.ec2Service.NewAWSSession()
+		if err != nil {
+			return fmt.Errorf("Error creating AWS session: %v", err)
+		}
+
 		// Check EC2 instances
-		a.ec2Service.CheckEC2Instances()
+		a.ec2Service.CheckEC2Instances(ec2Svc)
 	default:
 		// Return an error for unknown commands
 		return fmt.Errorf("Unknown command: %v", command)
